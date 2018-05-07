@@ -8,29 +8,20 @@
 
 import UIKit
 
-class ViewController: UITableViewController, UISearchResultsUpdating {
+class ViewController: UITableViewController {
 
     var countries:[Country] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         countries = Country.getHardcodedData()
         //search
-         
-        
+
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: UITableDataSource
@@ -72,43 +63,37 @@ class ViewController: UITableViewController, UISearchResultsUpdating {
     }
     
     // MARK: UISearchController
-    
     let searchController = UISearchController(searchResultsController: nil)
     
+    
+}
+
+extension ViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!.localizedLowercase
         
-        if searchText.characters.count > 0 {
+        if searchText.count > 0 {
             var filteredCountries:[Country] = []
-            
             for country in countries {
                 if let filteredCountry = filteredCities(in: country, searchText: searchText) {
                     filteredCountries.append(filteredCountry)
                 }
-                
             }
-            
             countries = filteredCountries
         } else {
             countries = Country.getHardcodedData()
         }
-        
-        
         tableView.reloadData()
     }
+    
     //helper function for proper filtering
     func filteredCities(in country:Country, searchText:String) -> Country? {
-        
         let c = Country(name: country.name)
-        
         c.cities = country.cities.filter {
-            city in
-            return city.name.localizedLowercase.contains(searchText)
+            $0.name.localizedLowercase.contains(searchText)
         }
         
         return c.cities.count > 0 ? c : nil
-        
     }
-    
 }
 
