@@ -24,53 +24,48 @@ test("hi")
 let img = UIImage(named: "open_xcode.png")
 
 
-//markup 
+//markup
+//: # Header Big
+//: ## Header Normal
+//: ### Header Small
+ 
+ 
+//: List
+//: * option 1
+//: * option 2
+//: * option 3
+//: - option 3.1
+ 
+//: Enumerated list
+//: 1. option 1
+//: 1. option 2
+//: 1. option 3
+ 
+ 
+//: This is _italic_ text.
+ 
+//: This is __bold__ text.
+ 
+//: This is ___bold & italic___ text.
+ 
+//: This is **bold** text.
+ 
+//: The code ```let x = 5``` has different style.
+ 
+//: An example follows:
+ 
+//: var a = 13
+//: var b = a + 7
+ 
+ 
+ 
+//: - Note:
+//:"You can learn Swift 4."
+//: \
+//: \
+//: Playgrounds are really nice place to learn Swift 4.
+ 
+//: ![Image from resources](open_xcode.png)
 
-/*:
- # Header Big
- ## Header Normal
- ### Header Small
- 
- 
- List
- * option 1
- * option 2
- * option 3
- - option 3.1
- 
- Enumerated list
- 1. option 1
- 1. option 2
- 1. option 3
- 
- 
- This is _italic_ text.
- 
- This is __bold__ text.
- 
- This is ___bold & italic___ text.
- 
- This is **bold** text.
- 
- The code ```let x = 5``` has different style.
- 
- An example follows:
- 
- var a = 13
- var b = a + 7
- 
- 
- 
- - Note:
- "You can learn Swift 4."
- \
- \
- Playgrounds are really nice place to learn Swift 4.
- 
- 
- ![Image from resources](open_xcode.png)
- 
- 
- [Swift](https://swift.org)
- 
- */
+//: [Swift](https://swift.org)
+
